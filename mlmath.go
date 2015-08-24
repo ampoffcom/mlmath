@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func check_length(p *[]float64, q *[]float64) error {
+func Check_length(p *[]float64, q *[]float64) error {
 	var err error = nil
 
 	if len(*p) != len(*q) {
@@ -32,8 +32,11 @@ func Manhatten(p []float64, q []float64) float64 {
 	res := 0.0
 
 	for i, val := range p {
-		res += math.Abs(val) - math.Abs(q[i])
+		res += math.Abs(val - q[i])
 	}
 
 	return res
+}
+
+func KNN() {
 }
