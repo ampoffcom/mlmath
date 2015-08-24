@@ -5,6 +5,11 @@ import (
 	"math"
 )
 
+type klabel struct {
+	values []float64
+	label  string
+}
+
 func Check_length(p *[]float64, q *[]float64) error {
 	var err error = nil
 
@@ -38,5 +43,6 @@ func Manhatten(p []float64, q []float64) float64 {
 	return res
 }
 
-func KNN() {
+func KNN(in *[]float64, tdata *[]klabel) {
+
 }
