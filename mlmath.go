@@ -11,7 +11,6 @@ type Klabel struct {
 }
 
 // Bubblesort for Klabel and repetitive sorting for small k
-
 func KlabelBsort(a []Klabel) []Klabel {
 	a_len := len(a)
 	a_temp := make([]Klabel, a_len)
@@ -46,6 +45,7 @@ func Check_length(p []float64, q []float64) error {
 	return err
 }
 
+// Euclidian distance, prone to runaways
 func Euclide(p []float64, q []float64) float64 {
 
 	res := 0.0
@@ -58,6 +58,7 @@ func Euclide(p []float64, q []float64) float64 {
 	return res
 }
 
+//Manhatten metric
 func Manhatten(p []float64, q []float64) float64 {
 
 	res := 0.0
@@ -69,6 +70,9 @@ func Manhatten(p []float64, q []float64) float64 {
 	return res
 }
 
+//kNN
+//calculate distance and store results in slice of size k
+//if new value is smaller than biggest value in slice, replace
 func KNN(in []float64, tdata []Klabel, k int) []Klabel {
 	k_res := make([]Klabel, 0)
 	var temp_res Klabel
