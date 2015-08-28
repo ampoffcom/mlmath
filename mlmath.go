@@ -2,7 +2,6 @@ package mlmath
 
 import (
 	"errors"
-	"fmt"
 	"math"
 )
 
@@ -13,7 +12,7 @@ type Klabel struct {
 
 // Bubblesort for Klabel and repetitive sorting for small k
 
-func KlabelBsort(a []Klabel) {
+func KlabelBsort(a []Klabel) []Klabel {
 	a_len := len(a)
 	a_temp := make([]Klabel, a_len)
 
@@ -34,7 +33,7 @@ func KlabelBsort(a []Klabel) {
 		}
 	}
 
-	fmt.Print(a)
+	return a
 }
 
 func Check_length(p []float64, q []float64) error {
@@ -81,6 +80,10 @@ func KNN(in []float64, tdata []Klabel, k int) []Klabel {
 		if len(k_res) < k {
 			k_res = append(k_res, temp_res)
 		} else {
+			k_res := KlabelBsort(k_res)
+			if temp_res.Values[0] < k_res[2].Values[0] {
+				k_res[2] = temp_res
+			}
 		}
 	}
 
